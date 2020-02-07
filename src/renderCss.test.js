@@ -6,19 +6,15 @@ import ReactDOMServer from 'react-dom/server';
 import ServerStyleSheets from './@blocks-ds/ServerStyleSheets';
 import fs from 'fs';
 
-const Index = () => {
-  return (
-    <ThemeProvider theme={defaultTheme}>
-      <Button />
-    </ThemeProvider>
-  );
-};
-
-test('render css', complete => {
+test('Render Button css', complete => {
   const sheets = new ServerStyleSheets();
-  ReactDOMServer.renderToString(sheets.collect(<Index />));
+  ReactDOMServer.renderToString(
+    sheets.collect(
+      <ThemeProvider theme={defaultTheme}>
+        <Button />
+      </ThemeProvider>
+    )
+  );
   const css = sheets.toString();
-  fs.writeFile('./src/@blocks-ds/css/blocks.css', css, complete);
+  fs.writeFile('./src/@blocks-ds/css/button.css', css, complete);
 });
-
-export default Index;
