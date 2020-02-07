@@ -16,5 +16,5 @@ test('Render Button css', complete => {
     )
   );
   const css = sheets.toString();
-  fs.writeFile('./src/@blocks-ds/css/button.css', css, complete);
+  fs.writeFile('./src/@blocks-ds/css/Button.css', css, complete);
 });
