@@ -1,0 +1,48 @@
+.blxButton-root {
+  cursor: pointer;
+  display: inline-block;
+  outline: 0;
+  padding: 8px 18px;
+  font-size: 0.875rem;
+  min-width: 64px;
+  box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
+  text-align: center;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 500;
+  line-height: 1.75;
+  border-radius: 4px;
+  letter-spacing: 0.02857em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.blxButton-root.blx-disabled {
+  opacity: 0.35;
+  pointer-events: none;
+}
+.blxButton-primary {
+  color: #fff;
+  border: 2px solid #009f6f;
+  background-color: #009f6f;
+}
+.blxButton-primary:hover {
+  box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
+  background-color: rgba(0, 139, 97, 1);
+}
+.blxButton-primary:active {
+  box-shadow: 0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12);
+  background-color: rgba(0, 112, 79, 1);
+}
+.blxButton-secondary {
+  color: #009f6f;
+  border: 2px solid #fff;
+  background-color: #fff;
+}
+.blxButton-secondary:hover {
+  box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
+  background-color: rgba(236, 245, 241, 1);
+}
+.blxButton-secondary:active {
+  box-shadow: 0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12);
+  background-color: rgba(213, 240, 229, 1);
+}
