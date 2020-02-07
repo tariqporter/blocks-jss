@@ -1,27 +1,19 @@
 import React from 'react';
-import { withStyles } from './withStyles';
-
-const styles = theme => ({
-  root: {},
-});
+import useTheme from './@blocks-ds/useTheme';
 
 const ThemeSelect = React.forwardRef(function Button(props, ref) {
-  const { themes, setTheme } = props;
-
-  const changeTheme = e => {
-    const id = e.target.value;
-    setTheme(themes[id]);
-  };
+  const { themes, changeTheme } = props;
+  const theme = useTheme();
 
   return (
-    <select onChange={changeTheme}>
-      {Object.keys(themes).map(theme => (
-        <option key={theme} value={theme}>
-          {theme}
+    <select onChange={({ target: { value } }) => changeTheme(value)} value={theme.type}>
+      {Object.keys(themes).map(id => (
+        <option key={id} value={id}>
+          {id}
         </option>
       ))}
     </select>
   );
 });
 
-export default withStyles(styles)(ThemeSelect);
+export default ThemeSelect;

@@ -9,9 +9,7 @@
 function clamp(value, min = 0, max = 1) {
   if (process.env.NODE_ENV !== 'production') {
     if (value < min || value > max) {
-      console.error(
-        `Material-UI: the value provided ${value} is out of range [${min}, ${max}].`
-      );
+      console.error(`blocks-ds: the value provided ${value} is out of range [${min}, ${max}].`);
     }
   }
 
@@ -61,7 +59,7 @@ export function decomposeColor(color) {
   if (['rgb', 'rgba', 'hsl', 'hsla'].indexOf(type) === -1) {
     throw new Error(
       [
-        `Material-UI: unsupported \`${color}\` color.`,
+        `blocks-ds: unsupported \`${color}\` color.`,
         'We support the following formats: #nnn, #nnnnnn, rgb(), rgba(), hsl(), hsla().',
       ].join('\n')
     );

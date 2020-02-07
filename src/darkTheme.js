@@ -1,23 +1,30 @@
-import transitions from './transitions';
-import shadows from './shadows';
+import transitions from './@blocks-ds/styles/transitions';
+import shadows from './@blocks-ds/styles/shadows';
 
 export default {
+  type: 'dark',
   palette: {
     primary: {
-      main: '#ff0000',
+      main: '#2b3836',
+      border: '#fff',
+      hover: '#008b61',
+      active: '#00704f',
       contrastText: '#fff',
     },
     secondary: {
       main: '#fff',
+      border: '#fff',
+      hover: '#ecf5f1',
+      active: '#d5f0e5',
       contrastText: '#009f6f',
-    },
-    text: {
-      primary: '#008b61',
-      secondary: '#00704f',
     },
     action: {
       hoverOpacity: 1,
       selectedOpacity: 1,
+      disabledOpacity: 0.35,
+    },
+    background: {
+      default: '#212121',
     },
   },
   shape: {

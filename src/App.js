@@ -1,34 +1,44 @@
-import React, { useState } from 'react';
-import Button from './Button';
-import { withStyles } from './withStyles';
+import React, { useEffect } from 'react';
 import ThemeSelect from './ThemeSelect';
-import { ThemeProvider } from 'react-jss';
-import defaultTheme from './styles/defaultTheme';
-import darkTheme from './styles/darkTheme';
+import { makeStyles, useTheme, Button } from './@blocks-ds';
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
   button: {
-    marginRight: theme.spacing(1),
+    marginRight: 8,
   },
-});
+  customButton: {
+    color: theme.type === 'light' ? '#fff' : '#000',
+    backgroundColor: theme.type === 'light' ? '#1976d2' : '#90caf9',
+    '&:hover': {
+      backgroundColor: 'rgb(17, 82, 147)',
+    },
+  },
+}));
 
 function App(props) {
-  const { classes } = props;
-  const themes = {
-    light: defaultTheme,
-    dark: darkTheme,
-  };
-  const [theme, setTheme] = useState(defaultTheme);
+  const { themes, changeTheme } = props;
+  const theme = useTheme();
+  const classes = useStyles(props);
+
+  useEffect(() => {
+    document.body.style['background-color'] = theme.palette.background.default;
+  }, [theme]);
 
   return (
-    <ThemeProvider theme={theme}>
-      <div style={{ display: 'flex', padding: 50 }}>
-        <Button className={classes.button}>blocks-ds button</Button>
-        <Button className={classes.button}>Second button</Button>
-        <ThemeSelect themes={themes} setTheme={setTheme} />
-      </div>
-    </ThemeProvider>
+    <div>
+      <Button className={classes.button}>Primary</Button>
+      <Button className={classes.button} color="secondary">
+        Secondary
+      </Button>
+      <Button className={classes.button} classes={{ root: classes.customButton }} color="secondary">
+        Custom
+      </Button>
+      <Button className={classes.button} disabled href="https://blocks.cbrebuild.com" target="_blank">
+        Go To Blocks
+      </Button>
+      <ThemeSelect themes={themes} changeTheme={changeTheme} />
+    </div>
   );
 }
 
-export default withStyles(styles)(App);
+export default App;

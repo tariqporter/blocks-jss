@@ -55,33 +55,23 @@ export default {
       const isString = value => typeof value === 'string';
       const isNumber = value => !isNaN(parseFloat(value));
       if (!isString(props) && !Array.isArray(props)) {
-        console.error(
-          'Material-UI: argument "props" must be a string or Array.'
-        );
+        console.error('blocks-ds: argument "props" must be a string or Array.');
       }
 
       if (!isNumber(durationOption) && !isString(durationOption)) {
-        console.error(
-          `Material-UI: argument "duration" must be a number or a string but found ${durationOption}.`
-        );
+        console.error(`blocks-ds: argument "duration" must be a number or a string but found ${durationOption}.`);
       }
 
       if (!isString(easingOption)) {
-        console.error('Material-UI: argument "easing" must be a string.');
+        console.error('blocks-ds: argument "easing" must be a string.');
       }
 
       if (!isNumber(delay) && !isString(delay)) {
-        console.error(
-          'Material-UI: argument "delay" must be a number or a string.'
-        );
+        console.error('blocks-ds: argument "delay" must be a number or a string.');
       }
 
       if (Object.keys(other).length !== 0) {
-        console.error(
-          `Material-UI: unrecognized argument(s) [${Object.keys(other).join(
-            ','
-          )}]`
-        );
+        console.error(`blocks-ds: unrecognized argument(s) [${Object.keys(other).join(',')}]`);
       }
     }
 
@@ -89,12 +79,8 @@ export default {
       .map(
         animatedProp =>
           `${animatedProp} ${
-            typeof durationOption === 'string'
-              ? durationOption
-              : formatMs(durationOption)
-          } ${easingOption} ${
-            typeof delay === 'string' ? delay : formatMs(delay)
-          }`
+            typeof durationOption === 'string' ? durationOption : formatMs(durationOption)
+          } ${easingOption} ${typeof delay === 'string' ? delay : formatMs(delay)}`
       )
       .join(',');
   },
